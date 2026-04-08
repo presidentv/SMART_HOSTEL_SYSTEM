@@ -74,7 +74,7 @@ export default function StaffDashboard() {
               <p style={{ flex: 1, marginBottom: '0.5rem' }}>{task.description}</p>
               
               {task.image_url && (
-                <img src={`http://localhost:5000${task.image_url}`} alt="Issue" style={{maxHeight:'100px', borderRadius:'8px', marginBottom:'1rem', alignSelf:'flex-start'}} />
+                <img src={task.image_url} alt="Issue" style={{maxHeight:'100px', borderRadius:'8px', marginBottom:'1rem', alignSelf:'flex-start'}} />
               )}
 
               <div style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>

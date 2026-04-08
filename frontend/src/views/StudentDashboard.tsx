@@ -197,13 +197,13 @@ export default function StudentDashboard() {
               <p style={{ marginTop: '0.5rem', marginBottom: '1rem' }}>{req.description}</p>
               
               {req.image_url && (
-                <img src={`http://localhost:5000${req.image_url}`} alt="Issue" style={{maxHeight:'100px', borderRadius:'8px', marginBottom:'1rem', alignSelf:'flex-start'}} />
+                <img src={req.image_url} alt="Issue" style={{maxHeight:'100px', borderRadius:'8px', marginBottom:'1rem', alignSelf:'flex-start'}} />
               )}
 
               {req.assignment?.after_image && (
                 <div style={{marginBottom: '1rem'}}>
                   <p style={{fontSize: '0.85rem', color: 'var(--text-muted)'}}>Proof of Completion:</p>
-                  <img src={`http://localhost:5000${req.assignment.after_image}`} alt="Proof" style={{maxHeight:'150px', borderRadius:'8px', border:'2px solid var(--success)'}} />
+                  <img src={req.assignment.after_image} alt="Proof" style={{maxHeight:'150px', borderRadius:'8px', border:'2px solid var(--success)'}} />
                 </div>
               )}
 
