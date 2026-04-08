@@ -1,0 +1,89 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String   @unique
+  password     String
+  role         String   @default("STUDENT") // STUDENT, STAFF, ADMIN
+  room_number  String?
+  is_approved  Boolean  @default(true)
+  reset_otp    String?
+  reset_otp_expires_at DateTime?
+  created_at   DateTime @default(now())
+
+  staffProfile StaffProfile?
+  requests     Request[]     @relation("UserRequests")
+  feedbacks    Feedback[]
+  notifications Notification[]
+}
+
+model StaffProfile {
+  id             Int      @id @default(autoincrement())
+  user_id        Int      @unique
+  specialization String   @default("CLEANING") // CLEANING, ELECTRICAL, WATER, WASTE
+  tasks_handled  Int      @default(0)
+  is_available   Boolean  @default(true)
+  user           User     @relation(fields: [user_id], references: [id])
+  assignments    Assignment[]
+}
+
+model Request {
+  id            Int       @id @default(autoincrement())
+  user_id       Int
+  room          String
+  category      String    // CLEANING, ELECTRICAL, WATER, WASTE
+  priority      String    // NORMAL, URGENT
+  status        String    @default("PENDING") // PENDING, ASSIGNED, IN_PROGRESS, COMPLETED
+  description   String
+  image_url     String?
+  created_at    DateTime  @default(now())
+  updated_at    DateTime  @updatedAt
+  completed_at  DateTime?
+  sla_breached  Boolean   @default(false)
+
+  user          User      @relation("UserRequests", fields: [user_id], references: [id])
+  assignment    Assignment?
+  feedback      Feedback?
+}
+
+model Assignment {
+  id            Int          @id @default(autoincrement())
+  request_id    Int          @unique
+  staff_id      Int
+  assigned_at   DateTime     @default(now())
+  before_image  String?
+  after_image   String?
+
+  request       Request      @relation(fields: [request_id], references: [id])
+  staff         StaffProfile @relation(fields: [staff_id], references: [id])
+}
+
+model Feedback {
+  id          Int      @id @default(autoincrement())
+  request_id  Int      @unique
+  user_id     Int
+  rating      Int
+  comments    String?
+  created_at  DateTime @default(now())
+
+  request     Request  @relation(fields: [request_id], references: [id])
+  user        User     @relation(fields: [user_id], references: [id])
+}
+
+model Notification {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  message    String
+  is_read    Boolean  @default(false)
+  created_at DateTime @default(now())
+
+  user       User     @relation(fields: [user_id], references: [id])
+}

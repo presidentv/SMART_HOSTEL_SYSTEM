@@ -1,0 +1,20 @@
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Env
+.env
+
+# Prisma
+backend/prisma/dev.db
+backend/prisma/dev.db-journal
+/generated/prisma/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Specific
+backend/uploads/

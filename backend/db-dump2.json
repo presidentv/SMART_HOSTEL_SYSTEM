@@ -1,0 +1,134 @@
+{
+  "reqs": [
+    {
+      "id": 5,
+      "user_id": 4,
+      "room": "Block J - 865",
+      "category": "CLEANING",
+      "priority": "NORMAL",
+      "status": "COMPLETED",
+      "description": "Clean the Room",
+      "image_url": "/uploads/1774478436338-architecture_diagram1.png.jpeg",
+      "created_at": "2026-03-25T22:40:36.352Z",
+      "updated_at": "2026-03-26T07:34:45.630Z",
+      "completed_at": "2026-03-26T07:34:45.628Z",
+      "sla_breached": false
+    },
+    {
+      "id": 6,
+      "user_id": 5,
+      "room": "Block R - 568",
+      "category": "ELECTRICAL",
+      "priority": "URGENT",
+      "status": "COMPLETED",
+      "description": "Short Circuit",
+      "image_url": "/uploads/1774509050300-architecture_diagram1.png.jpeg",
+      "created_at": "2026-03-26T07:10:50.318Z",
+      "updated_at": "2026-03-26T07:29:31.131Z",
+      "completed_at": "2026-03-26T07:29:31.129Z",
+      "sla_breached": false
+    }
+  ],
+  "staff": [
+    {
+      "id": 1,
+      "user_id": 2,
+      "specialization": "CLEANING",
+      "tasks_handled": 1,
+      "is_available": true,
+      "user": {
+        "id": 2,
+        "name": "John Cleaner",
+        "email": "staff1@hostel.com",
+        "password": "$2b$10$cj4QmbhUrJMFHbaE4txliOc5K6iQLSlzMbMNi/E6Pm6HDTu6rEw6y",
+        "role": "STAFF",
+        "room_number": null,
+        "is_approved": true,
+        "created_at": "2026-03-25T21:05:04.750Z"
+      },
+      "assignments": [
+        {
+          "id": 5,
+          "request_id": 5,
+          "staff_id": 1,
+          "assigned_at": "2026-03-25T22:40:36.383Z",
+          "before_image": null,
+          "after_image": "/uploads/1774510411667-WhatsApp_Image_2026-03-20_at_9.52.22_PM-removebg-preview.png",
+          "request": {
+            "id": 5,
+            "user_id": 4,
+            "room": "Block J - 865",
+            "category": "CLEANING",
+            "priority": "NORMAL",
+            "status": "COMPLETED",
+            "description": "Clean the Room",
+            "image_url": "/uploads/1774478436338-architecture_diagram1.png.jpeg",
+            "created_at": "2026-03-25T22:40:36.352Z",
+            "updated_at": "2026-03-26T07:34:45.630Z",
+            "completed_at": "2026-03-26T07:34:45.628Z",
+            "sla_breached": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "user_id": 3,
+      "specialization": "ELECTRICAL",
+      "tasks_handled": 1,
+      "is_available": true,
+      "user": {
+        "id": 3,
+        "name": "Electrician Mike",
+        "email": "staff2@hostel.com",
+        "password": "$2b$10$cj4QmbhUrJMFHbaE4txliOc5K6iQLSlzMbMNi/E6Pm6HDTu6rEw6y",
+        "role": "STAFF",
+        "room_number": null,
+        "is_approved": true,
+        "created_at": "2026-03-25T21:05:04.763Z"
+      },
+      "assignments": [
+        {
+          "id": 6,
+          "request_id": 6,
+          "staff_id": 2,
+          "assigned_at": "2026-03-26T07:10:50.340Z",
+          "before_image": null,
+          "after_image": "/uploads/1774510120329-WhatsApp Image 2026-03-20 at 9.52.22 PM.jpeg",
+          "request": {
+            "id": 6,
+            "user_id": 5,
+            "room": "Block R - 568",
+            "category": "ELECTRICAL",
+            "priority": "URGENT",
+            "status": "COMPLETED",
+            "description": "Short Circuit",
+            "image_url": "/uploads/1774509050300-architecture_diagram1.png.jpeg",
+            "created_at": "2026-03-26T07:10:50.318Z",
+            "updated_at": "2026-03-26T07:29:31.131Z",
+            "completed_at": "2026-03-26T07:29:31.129Z",
+            "sla_breached": false
+          }
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "user_id": 6,
+      "specialization": "WATER",
+      "tasks_handled": 0,
+      "is_available": true,
+      "user": {
+        "id": 6,
+        "name": "Hamza",
+        "email": "hamza@gmail.com",
+        "password": "$2b$10$lNrkn9sONbBXY20h0btkYeYfiem2Fk.0ccYVefW3HrCrdKK6Qwlpa",
+        "role": "STAFF",
+        "room_number": null,
+        "is_approved": true,
+        "created_at": "2026-03-26T07:22:04.031Z"
+      },
+      "assignments": []
+    }
+  ]
+}
